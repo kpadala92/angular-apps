@@ -1,0 +1,135 @@
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span><img src="./assets/logo4.png"></span>
+      <span class="example-fill-remaining-space"></span>
+      <span class="align-center"></span>
+      <span class="example-spacer"></span>
+  
+      <button mat-button>About</button>
+      <button mat-button>Contact</button>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+<!--The content below is only a placeholder and can be replaced.-->
+ <!--<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span><img src="./assets/logo4.png"></span>
+      <span class="example-fill-remaining-space"></span>
+      <span class="align-center"></span>
+      <span class="example-spacer"></span>
+  
+      <button mat-button>About</button>
+      <button mat-button>Contact</button> 
+      <span class="align-center">Business Roporting Tool</span>
+    </mat-toolbar-row>
+  </mat-toolbar>-->
+  <!-- Mat Tab code goes here -->
+  <mat-tab-group color="accent" backgroundColor="primary">
+        <!-- <mat-tab label="Logo"> Content 2 </mat-tab> -->
+        <mat-tab >  
+          <ng-template mat-tab-label><img src="./assets/logo4.png"></ng-template>  
+            <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+              <h1>Home Page Content Goes Here ...!</h1>
+            </div>
+        </mat-tab>
+        <mat-tab label="Reporting Data"> 
+            <div class="search-div">
+              <mat-form-field class="search-form-field" floatLabel="never">
+                      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+                      <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+                        <mat-icon>close</mat-icon>
+                      </button>
+              </mat-form-field>
+            </div>
+            <div class="example-container mat-elevation-z8">
+                <mat-table #table [dataSource]="listData" matSort matSortStart="desc">
+                    <ng-container matColumnDef="issueKey">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Key </mat-header-cell>
+                     <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.issueKey}}</mat-cell>
+                    </ng-container> 
+          <ng-container matColumnDef="issueSummary">
+              <mat-header-cell *matHeaderCellDef> Summary </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.issueSummary}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="accountName">
+              <mat-header-cell *matHeaderCellDef> Account Name </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.accountName}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="issueType">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.issueType}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="issueStatus">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.issueStatus}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="parentKey">
+              <mat-header-cell *matHeaderCellDef> Parent </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.parentKey}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="timeEstimate">
+              <mat-header-cell *matHeaderCellDef> LOE </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.timeEstimate}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="reporter">
+              <mat-header-cell *matHeaderCellDef> Reporter </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.reporter}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="accountClient">
+              <mat-header-cell *matHeaderCellDef> Client </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.accountClient}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="billable">
+              <mat-header-cell *matHeaderCellDef> Billable </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.billable}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="deliverableType">
+              <mat-header-cell *matHeaderCellDef> Deliverable Type </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.deliverableType}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="platform">
+              <mat-header-cell *matHeaderCellDef> Platform </mat-header-cell>
+              <mat-cell *matCellDef="let WorkLogData">{{WorkLogData.platform}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="loading">
+              <mat-footer-cell *matFooterCellDef colspan="12">
+                  Loading Data ... 
+              </mat-footer-cell>
+          </ng-container>
+          <ng-container matColumnDef="noData">
+              <mat-footer-cell *matFooterCellDef colspan="12">
+                  No Data
+              </mat-footer-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row><!-- (click) = "rowClicked(row)" -->
+          <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+          <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+      </mat-table>
+      <mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50, 75, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+      </mat-tab>
+      <mat-tab label="WorkLog File Data">
+        <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+          <h1>WorkLog File Data Goes Here ...</h1>
+        </div>  
+      </mat-tab>
+      <mat-tab label="Parent LogFile Import">
+          <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+            <h1>Parent LogFile Import Goes Here ...</h1> 
+          </div> 
+      </mat-tab>
+      <mat-tab label="Reporting">
+          <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+            <h1>Reporting content Goes Here ...</h1>
+          </div>
+      </mat-tab>
+    </mat-tab-group>
+    <footer>
+            <mat-toolbar class="md-scroll-shrink" color="primary">
+              <div layout="row" layout-align="center center" flex>
+                    © 2018 Zeta Global, Inc. All Rights Reserved.
+              </div>
+            </mat-toolbar>
+    </footer>
+    
+    <!-- <app-worklogdatatable></app-worklogdatatable> -->

@@ -1,0 +1,76 @@
+<!-- <!--The content below is only a placeholder and can be replaced.-->
+ <!--<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span><img src="./assets/logo4.png"></span>
+      <span class="example-fill-remaining-space"></span>
+      <span class="align-center"></span>
+      <span class="example-spacer"></span>
+  
+      <button mat-button>About</button>
+      <button mat-button>Contact</button> 
+      <span class="align-center">Business Roporting Tool</span>
+    </mat-toolbar-row>
+  </mat-toolbar>-->
+  <!-- Mat Tab code goes here -->
+ <!--  <mat-tab-group color="accent" backgroundColor="primary">
+      
+      <mat-tab >  
+        <ng-template mat-tab-label><img src="./assets/logo4.png"></ng-template>  
+          <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+            <h1>Home Page Content Goes Here ...!</h1>
+          </div>
+      </mat-tab>
+      <mat-tab label="Reporting Data"> 
+        <div class="example-container mat-elevation-z8">
+          <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+      <mat-table #table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.position}}</mat-cell>
+      </ng-container> 
+  
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+     
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click) = "rowClicked(row)"></mat-row>
+        </mat-table>
+        <mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+      </div> 
+    </mat-tab>
+    <mat-tab label="WorkLog File Data">
+      <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+        <h1>WorkLog File Data Goes Here ...</h1>
+      </div>  
+    </mat-tab>
+    <mat-tab label="Parent LogFile Import">
+        <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+          <h1>Parent LogFile Import Goes Here ...</h1> 
+        </div> 
+    </mat-tab>
+    <mat-tab label="Reporting">
+        <div style="height: 421; width: 1333px; text-align: center; justify-content: center;line-height: 500px;">
+          <h1>Reporting content Goes Here ...</h1>
+        </div>
+    </mat-tab>
+  </mat-tab-group>  -->
+  
+  
+  <app-worklogdatatable></app-worklogdatatable>
